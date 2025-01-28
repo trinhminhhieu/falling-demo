@@ -1,0 +1,59 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Tự động phát hiện phiên bản React
+    }
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@next/next/recommended",
+    "plugin:@typescript-eslint/recommended", // Thêm dòng này để hỗ trợ TypeScript
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser", // Đặt parser là @typescript-eslint/parser
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "prettier",
+    "@typescript-eslint", // Thêm @typescript-eslint plugin
+    "testing-library"
+  ],
+  "overrides": [
+    // Chỉ áp dụng các quy tắc Testing Library trong các tệp test
+    {
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": ["plugin:testing-library/react"]
+    }
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "off",
+    "no-undef": "off",
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "@typescript-eslint/no-unused-vars": "error", // Ví dụ về một quy tắc TypeScript
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+  }
+  
+}
